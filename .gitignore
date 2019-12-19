@@ -1,0 +1,10 @@
+# Directories
+prediction/
+weights/
+/.ipynb_checkpoints/
+
+# Files
+/*.pth
+/*.csv
+*.pth
+*.csv

@@ -321,6 +321,7 @@ def dla34(pretrained, **kwargs):  # DLA-34
                 [16, 32, 64, 128, 256, 512],
                 block=BasicBlock, **kwargs)
     if pretrained:
+        print('pretrained weight')
         model.load_pretrained_model(data='imagenet', name='dla34', hash='ba72cf86')
     return model
 
@@ -542,7 +543,7 @@ def fill_fc_weights(layers):
 
 class DLASeg(nn.Module):
     def __init__(self, base_name, heads,
-                 pretrained=True, down_ratio=4, head_conv=256):
+                 pretrained=None, down_ratio=4, head_conv=256):
         super(DLASeg, self).__init__()
         assert down_ratio in [2, 4, 8, 16]
         self.heads = heads
@@ -644,7 +645,7 @@ def dla169up(classes, pretrained_base=None, **kwargs):
 
 def get_pose_net(num_layers, heads, head_conv, down_ratio=8):
   model = DLASeg('dla{}'.format(num_layers), heads,
-                 pretrained=False,
+                 pretrained=None,
                  down_ratio=down_ratio,
                  head_conv=head_conv)
   return model

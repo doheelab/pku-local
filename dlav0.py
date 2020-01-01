@@ -643,7 +643,7 @@ def dla169up(classes, pretrained_base=None, **kwargs):
     return model
 '''
 
-def get_pose_net(num_layers, heads, head_conv, down_ratio=4):
+def get_pose_net(num_layers, heads, head_conv, down_ratio=8):
   model = DLASeg('dla{}'.format(num_layers), heads,
                  pretrained=None,
                  down_ratio=down_ratio,
